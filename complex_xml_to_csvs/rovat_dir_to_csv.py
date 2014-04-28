@@ -46,7 +46,8 @@ def main():
             close_fds=True,
             cwd=rovat_dir
         )
-        shutil.rmtree(rovat_dir)
+        # actively ignore errors as shutil.rmtree has problems on NFS
+        shutil.rmtree(rovat_dir, ignore_errors=True)
 
 
 if __name__ == '__main__':
